@@ -8,12 +8,6 @@ function Cards() {
                     <div className='col-md-4'>
                         <Card1/>
                     </div>
-                    <div className='col-md-4'>
-                        <Card1/>
-                    </div>
-                    <div className='col-md-4'>
-                        <Card1/>
-                    </div>
                 </div>
             </div>
     )
