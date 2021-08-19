@@ -1,0 +1,10 @@
+/*NavBar*/
+.navbar{
+    background-color: black;
+}
+.navbar div img{
+    padding-right: 20px;
+}
+.btn{
+    margin-right: 20px;
+}
