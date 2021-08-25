@@ -1,11 +1,11 @@
-import './Card1.css'
+import './CSS/Card1.css'
 import React from 'react'
 import ImgCard from '../Img/Ford.jpg'
 import ItemCount from './ItemCount'
 
 function Card1() {
     return (
-        <div>
+        <div className="col">
             <div className='card'>
                 <img src= {ImgCard} className='card-img-top' alt='logo'/>
                 <div className='card-body'>

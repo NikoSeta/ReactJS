@@ -1,5 +1,5 @@
 import React from 'react'
-import './NavBar.css'
+import './CSS/NavBar.css'
 import { CartWidget } from './CartWidget'
 import ImgTitulo from '../Img/ImgTitulo.jpg'
 function NavBar() {
@@ -13,9 +13,6 @@ function NavBar() {
             </button>
             <div className='collapse navbar-collapse' id='navbarSupportedContent'>
                 <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
-                    <li className='nav-item'>
-                    <a className='nav-link active text-danger' aria-current='page' href='#'>Home</a>
-                    </li>
                     <li className='nav-item'>
                     <a className='nav-link active text-danger' aria-current='page' href='#'>Autos</a>
                     </li>
