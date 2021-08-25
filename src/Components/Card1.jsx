@@ -1,6 +1,8 @@
 import './Card1.css'
 import React from 'react'
 import ImgCard from '../Img/Ford.jpg'
+import ItemCount from './ItemCount'
+
 function Card1() {
     return (
         <div>
@@ -9,10 +11,12 @@ function Card1() {
                 <div className='card-body'>
                     <h5 className='card-title'>Ford Focus RS</h5>
                     <p className='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <ItemCount/>
                     <a href='#' className='btn btn-danger'>Comprar</a>
                 </div>
             </div>
         </div>
+        
         )
     }
 
