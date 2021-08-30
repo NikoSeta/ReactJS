@@ -1,11 +1,13 @@
 import React from 'react'
-import ItemCount from './ItemCount'
+import Item1 from './Item1'
+
 
 function ItemList() {
     return (
         <div className="container d-flex justify-content-center">
             <div className="row">
                 <ul className="col-bg-4">
+                    <Item1 />
                     <li class="list-group">
                         <a href="#" class="list-group-item list-group-item-dark dark" aria-current="true">Volskwagen Fox</a>
                     </li>

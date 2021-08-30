@@ -1,7 +1,7 @@
 import './CSS/Card1.css'
 import React from 'react'
 import ImgCard from '../Img/Ford.jpg'
-import ItemCount from './ItemCount'
+import ItemCount from './ItemCont'
 
 function Card1() {
     return (
