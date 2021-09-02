@@ -1,8 +1,9 @@
-import './CSS/ItemCount.css'
+import '../../CSS/ItemCount.css'
 import React, { useState } from 'react';
-export default function Home() {
+export default 
+function Home() {
   const [cantidad, setCount] = useState(1);
-  let btnResta = document.getElementsByClassName("resta")[0]; //boton menos
+  let btnResta = document.getElementsByClassName("resta")[0];
   const handlerClick = () => {
       setCount(cantidad + 1);
   };
@@ -21,4 +22,4 @@ export default function Home() {
           <button className="btn-sm btn-primary" onClick={handlerClick}>+</button>
         </div>
   );
-}
+} 
