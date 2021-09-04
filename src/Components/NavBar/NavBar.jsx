@@ -3,6 +3,7 @@ import React from 'react'
 import '../CSS/NavBar.css'
 import  {CartWidget} from './CartWidget'
 import ImgTitulo from '../../Img/ImgTitulo.jpg'
+import Contacto from '../Contenedores/Contacto'
 function NavBar() {
     return (
         <div className='navbar navbar-expand-lg'>

@@ -2,7 +2,9 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from './Components/NavBar/NavBar';
-import Item from './Components/Contenedores/ItemList/Item'
+import ItemList from './Components/Contenedores/ItemList/ItemList';
+import ItemDetail from './Components/Contenedores/ItemDetail/ItemDetail';
+
 
 function App() {
   return (
@@ -10,8 +12,10 @@ function App() {
       <div className='App'>
         <NavBar/>
           <Switch>
-            <Route exact path = '/Lista/:category' />
-            <Route exact path = '/detalle' />
+            <ItemList />
+            <ItemDetail />
+            <Route exact path = '/detalle' component={ItemDetail} />
+            <Route exact path = '/contacto'  />
           </Switch>
       </div>
     </Router>
