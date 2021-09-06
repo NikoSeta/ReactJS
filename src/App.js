@@ -2,20 +2,21 @@ import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from './Components/NavBar/NavBar';
-import ItemList from './Components/Contenedores/ItemList/ItemList';
-import ItemDetail from './Components/Contenedores/ItemDetail/ItemDetail';
-
+import ItemDetailContainer from './Components/Contenedores/ItemDetail/ItemDetailContainer';
+import ItemListCont from './Components/Contenedores/ItemList/ItemListContainer';
+import Contacto from './Components/Contenedores/Contacto';
 
 function App() {
   return (
     <Router>
       <div className='App'>
         <NavBar/>
-          <Switch>
-            <ItemList />
-            <ItemDetail />
-            <Route exact path = '/detalle' component={ItemDetail} />
-            <Route exact path = '/contacto'  />
+          <Switch>  
+            <ItemListCont />          
+            <Route exact path ='./' component = {ItemListCont} />
+            <Route exact path = '/detalle/:detalle' component = {ItemDetailContainer}  />
+            <Route exact path = '/contacto/:contacto' component = {Contacto} />
+            <Route exact path = '/carrito' />
           </Switch>
       </div>
     </Router>

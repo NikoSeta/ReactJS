@@ -2,26 +2,12 @@ import {Autos} from '../ItemList/ItemList';
 
 
 function ItemDetail( {Autos} ) {
-    
     return (
-        <div>
-        {Autos.map((auto)=>
-        <div class="card mb-3" style={{maxWidth: '540px'}}>
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src={auto.imgUrl} class="img-fluid rounded-start" alt="..."/>
-                    </div>
-                    <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">{auto.marca}{auto.modelo}{auto.año}</h5>
-                        <p class="card-text">{auto.descrpcion}</p>
-                        <h5 class="card-text">{auto.precio}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        )}
-        </div>
+            <div>
+                            <h5 className="card-title">{Autos.marca}{Autos.modelo}{Autos.año}</h5>
+                            <p className="card-text">{Autos.descrpcion}</p>
+                            <h5 className="card-text">{Autos.precio}</h5>
+        </div>            
     )
 }
 export default ItemDetail

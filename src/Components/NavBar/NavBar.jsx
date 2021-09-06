@@ -8,7 +8,7 @@ function NavBar() {
     return (
         <div className='navbar navbar-expand-lg'>
         <div className='container'>
-            <Link to= "/home"><img src={ImgTitulo} alt="logo"/></Link>
+            <Link to= "./"><img src={ImgTitulo} alt="logo"/></Link>
             <a className='navbar-brand text-danger'>Car Sale</a>
             <button className='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
                 <span className='navbar-toggler-icon'></span>
