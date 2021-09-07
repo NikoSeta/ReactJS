@@ -12,7 +12,7 @@ function App() {
       <div className='App'>
         <NavBar/>
           <Switch>  
-            
+            <ItemListContainer/>
             <Route exact path ='./lista' component = {ItemListContainer} />
             <Route exact path = '/detalle/:detalle' component = {ItemDetailContainer}  />
             <Route exact path = '/contacto/:contacto' component = {Contacto} />

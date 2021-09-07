@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import ford from '../../../Img/Ford.jpg'
 
 function ItemList({Autos}) {
@@ -9,7 +9,7 @@ function ItemList({Autos}) {
                         <img src={ford} class="card-img-top" alt="..." />
                         <div className="card-body">
                         <h5 className="card-title">{Autos.marca}{Autos.modelo}</h5>
-                        <Link to ='/detalle'><a className="btn btn-primary">Ver más</a></Link>
+                        <NavLink to ='/detalle'><a className="btn btn-primary">Ver más</a></NavLink>
                         </div>
                     </div>
                  </div>            

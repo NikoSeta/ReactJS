@@ -34,9 +34,7 @@ function ItemDetailContainer() {
 console.log(Autos);
     return (
         <>
-        <NavLink to={'/detalle/:detalle'}>
-            {loading ? <h2> Cargando producto... </h2> : <ItemDetail Autos ={Autos}/> }   
-        </NavLink>  
+            {loading ? <h2> Cargando producto... </h2> : <ItemDetail Autos ={Autos}/> }     
         <Button variant="contained">Atras</Button>
         </>
     )
