@@ -1,7 +1,7 @@
 import '../../CSS/ItemCount.css'
 import React, { useState } from 'react';
-export default 
-function Home() {
+
+function ItemContador() {
   const [cantidad, setCount] = useState(1);
   let btnResta = document.getElementsByClassName("resta")[0];
   const handlerClick = () => {
@@ -23,3 +23,5 @@ function Home() {
         </div>
   );
 } 
+
+export default ItemContador

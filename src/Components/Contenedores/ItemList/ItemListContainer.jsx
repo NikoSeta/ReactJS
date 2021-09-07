@@ -1,6 +1,5 @@
-import React from 'react'
 import ItemList from './ItemList'
-
+import { NavLink } from 'react-router-dom'
 const Autos = [
     {id: 1, marca: "Volkswagen", modelo: "Fox", año: 2012, categoria: "auto", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 9000, imgUrl: "../Img/VW-Fox.jpg"},
     {id: 2, marca: "Volkswagen", modelo: "Amarok", año: 2016, categoria: "camioneta",descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 15000, imgUrl: "../Img/VW-Amarok.jpeg"},
@@ -15,7 +14,7 @@ const Autos = [
     {id: 12, marca: "Renault", modelo: "Duster", año: 2012, categoria: "camioneta",descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 24000, imgUrl: "../Img/Renault-Duster.webp"},
 ]
 
-function getAuto(id) {
+function getAutos(id) {
     if (id===undefined) {
         return Autos
     }else{
@@ -24,15 +23,16 @@ function getAuto(id) {
 }
 let tarea = new Promise((resolve) => {
     setTimeout(() => {
-        resolve(getAuto(1));        
+        resolve(getAutos(1));        
     }, 3000);
 });
 console.log(tarea);
 function ItemListContainer() {
     return (
         <div>
-            {Autos.map((Autos => <ItemList Autos = {Autos}/>))}
+            <NavLink to={'./lista'}>{Autos.map((Autos => <ItemList Autos = {Autos}/>))}</NavLink>
         </div>
     );
 }
 export default ItemListContainer
+export {Autos}

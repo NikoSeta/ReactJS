@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import ItemDetail from './ItemDetail'
-const Autos = [
+import { NavLink } from "react-router-dom";
+import { Button } from "bootstrap";
+
+export const Autos = [
     {id: 1, marca: "Volkswagen", modelo: "Fox", año: 2012, categoria: "auto", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 9000, imgUrl: "../Img/VW-Fox.jpg"},
     {id: 2, marca: "Volkswagen", modelo: "Amarok", año: 2016, categoria: "camioneta",descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 15000, imgUrl: "../Img/VW-Amarok.jpeg"},
     {id: 3, marca: "Volkswagen", modelo: "Gol", año: 2010, categoria: "auto",descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 8500, imgUrl: "../Img/VW-Gol.jpg"},
@@ -14,35 +17,27 @@ const Autos = [
     {id: 12, marca: "Renault", modelo: "Duster", año: 2012, categoria: "camioneta",descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 24000, imgUrl: "../Img/Renault-Duster.webp"},
 ]
 
-function ItemDetailContainer(auto) {
+function ItemDetailContainer() {
     const [ Autos, setAutos ] = useState({})
     const [loading, setLoading] = useState(true)
-    /*const id = auto.match.params.id;
-    const promise = new Promise ((resolve, reject)=> {
-        const foundAuto = Autos.find((auto) => auto.id === parseInt(id));
-        if (foundAuto){
-            resolve (foundAuto)
-        }else {
-            reject ('No hay Auto');
-        };}) */
-
     const getAutos = new Promise ((resolv) => {
         setTimeout(() =>{
             resolv(Autos)
         }, 2000)
     })
-    //USE_EFFECT
     useEffect(() => {
-       getAutos
-       .then(resp => {
-           setAutos(resp)
+       getAutos.then(resp => {
+           setAutos(console.log(resp))
            setLoading(false)
        }) 
     }, [])
-
+console.log(Autos);
     return (
         <>
-            {loading ? <h2> Cargando producto... </h2> : <ItemDetail Autos ={Autos}/> }     
+        <NavLink to={'/detalle/:detalle'}>
+            {loading ? <h2> Cargando producto... </h2> : <ItemDetail Autos ={Autos}/> }   
+        </NavLink>  
+        <Button variant="contained">Atras</Button>
         </>
     )
 }

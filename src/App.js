@@ -3,7 +3,7 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from './Components/NavBar/NavBar';
 import ItemDetailContainer from './Components/Contenedores/ItemDetail/ItemDetailContainer';
-import ItemListCont from './Components/Contenedores/ItemList/ItemListContainer';
+import ItemListContainer from './Components/Contenedores/ItemList/ItemListContainer';
 import Contacto from './Components/Contenedores/Contacto';
 
 function App() {
@@ -12,11 +12,11 @@ function App() {
       <div className='App'>
         <NavBar/>
           <Switch>  
-            <ItemListCont />          
-            <Route exact path ='./' component = {ItemListCont} />
+            
+            <Route exact path ='./lista' component = {ItemListContainer} />
             <Route exact path = '/detalle/:detalle' component = {ItemDetailContainer}  />
             <Route exact path = '/contacto/:contacto' component = {Contacto} />
-            <Route exact path = '/carrito' />
+            <Route exact path = '/carrito/:carrito'/>
           </Switch>
       </div>
     </Router>

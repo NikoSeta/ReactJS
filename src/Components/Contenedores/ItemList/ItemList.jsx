@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import ford from '../../../Img/Ford.jpg'
 
-function ItemList(Autos) {
+function ItemList({Autos}) {
     return (
             <div className="container">
                 <div className="row">
