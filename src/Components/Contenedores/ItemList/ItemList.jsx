@@ -1,20 +1,10 @@
-import { NavLink } from 'react-router-dom'
-import ford from '../../../Img/Ford.jpg'
+import Item from './Item';
 
-function ItemList({Autos}) {
+function ItemList({ autos }) {
     return (
-            <div className="container">
-                <div className="row">
-                    <div className="card" style={{width: '18rem'}}>
-                        <img src={ford} class="card-img-top" alt="..." />
-                        <div className="card-body">
-                        <h5 className="card-title">{Autos.marca}{Autos.modelo}</h5>
-                        <NavLink to ='/detalle'><a className="btn btn-primary">Ver más</a></NavLink>
-                        </div>
-                    </div>
-                 </div>            
+            <div>
+                 {autos.map((auto)=>  <Item auto={auto} />  )  }       
             </div>
     )
 }
-
 export default ItemList

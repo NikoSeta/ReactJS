@@ -1,4 +1,4 @@
-import ItemContador from './ItemContador';
+import ItemContador from '../ItemCount/ItemContador';
 import {Autos} from '../ItemDetail/ItemDetailContainer'
 
 function ItemDetail()  {
