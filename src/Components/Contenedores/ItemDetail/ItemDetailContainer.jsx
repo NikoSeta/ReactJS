@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import ItemDetail from './ItemDetail'
-import { NavLink } from "react-router-dom";
-import { Button } from "bootstrap";
 
 export const Autos = [
     {id: 1, marca: "Volkswagen", modelo: "Fox", año: 2012, categoria: "auto", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 9000, imgUrl: "../Img/VW-Fox.jpg"},
@@ -35,7 +33,6 @@ console.log(Autos);
     return (
         <>
             {loading ? <h2> Cargando producto... </h2> : <ItemDetail Autos ={Autos}/> }     
-        <Button variant="contained">Atras</Button>
         </>
     )
 }

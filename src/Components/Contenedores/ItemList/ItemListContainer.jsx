@@ -1,4 +1,8 @@
 import ItemList from './ItemList'
+import { useState } from 'react'
+import { useEffect } from 'react/cjs/react.development'
+import { useParams } from 'react-router'
+
 const Autos = [
     {id: 1, marca: "Volkswagen", modelo: "Fox", año: 2012, categoria: "auto", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 9000, imgUrl: "../Img/VW-Fox.jpg"},
     {id: 2, marca: "Volkswagen", modelo: "Amarok", año: 2016, categoria: "camioneta",descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 15000, imgUrl: "../Img/VW-Amarok.jpeg"},
@@ -25,8 +29,16 @@ let tarea = new Promise((resolve) => {
         resolve(getAutos(1));        
     }, 3000);
 });
+
 console.log(tarea);
 function ItemListContainer() {
+    const [Autos, setItem] = useState([])
+    const { category } = useParams()
+
+    useEffect(()=> { 
+        tarea.then((resp)=> setItem(resp))
+    })
+    console.log(category);
     return (
         <div>
             {Autos.map((Autos => <ItemList Autos = {Autos}/>))}

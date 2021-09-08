@@ -1,7 +1,7 @@
 
 function Contacto() {
     return (
-        <form>
+        <form className="container">
             <div className="form-row">
                 <div className="form-group col-md-6">
                     <label for="inputEmail4">Nombre</label>
