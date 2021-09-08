@@ -13,11 +13,11 @@ function App() {
       <div className='App'>
         <NavBar/>
           <Switch>  
-            <ItemListContainer/>
-            <Route exact path ='./categoria/:category' component = {ItemListContainer} />
-            <Route exact path = '/detalle/:detalle' component = {ItemDetailContainer}  />
+            
+            <Route exact path ='/' component = {ItemListContainer} />
+            <Route exact path = '/category/:categoria' component = {ItemDetailContainer}  />
             <Route exact path = '/contacto/:contacto' component = {Contacto} />
-            <Route exact path = '/carrito/:carrito' component={Cart}/>
+            <Route exact path = '/carrito/:cart' component={Cart}/>
           </Switch>
       </div>
     </Router>

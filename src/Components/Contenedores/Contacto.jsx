@@ -21,7 +21,7 @@ function Contacto() {
                 <input type="text" class="form-control" id="inputAddress2" placeholder="Teléfono"/>
             </div>
             <div className="form-group">
-                <label for="exampleFormControlTextarea1">...</label>
+                <label for="exampleFormControlTextarea1"></label>
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>

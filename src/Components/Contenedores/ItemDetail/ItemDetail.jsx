@@ -1,12 +1,12 @@
 import ItemContador from '../ItemCount/ItemContador';
-import {Autos} from '../ItemDetail/ItemDetailContainer'
 
-function ItemDetail()  {
+function ItemDetail(props)  {
+    const {auto} = props
     return (
             <div>
-                <h5 className="card-title">{Autos.marca}{Autos.modelo}{Autos.año}</h5>
-                <p className="card-text">{Autos.descrpcion}</p>
-                <h5 className="card-text">{Autos.precio}</h5>
+                <h5 className="card-title">{auto.marca}{auto.modelo}{auto.año}</h5>
+                <p className="card-text">{auto.descrpcion}</p>
+                <h5 className="card-text">{auto.precio}</h5>
                 <ItemContador/>
             </div>       
     )
