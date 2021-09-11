@@ -3,10 +3,10 @@ import { getAuto } from "../../../Utils/promesas";
 import ItemDetail from "./ItemDetail";
 
 
-function ItemDetailContainer() {
+function ItemDetailContainer (props){
     const [ auto, setAuto ] = useState({})
     const [loading, setloading] = useState(true)
-
+    
     useEffect(() => {
        getAuto
        .then(resp => {
@@ -14,13 +14,11 @@ function ItemDetailContainer() {
            setloading(false)
        }) 
     }, [])
-
-    console.log(auto);
-
+    
     return (
         <>
             {loading ? 
-                    <h2>Cargando Productos...</h2>
+                    <h2 className="text-warning">Cargando Productos...</h2>
                 : 
                     <ItemDetail auto={auto}  />
             }
