@@ -1,12 +1,24 @@
 import React, {useContext} from 'react'
 import { NavLink } from 'react-router-dom'
 import ford from '../../../Img/Ford.jpg'
-import { CartContext } from '../../Context/CartContext';
-
+import { useCartContext } from '../../Context/CartContext';
+import { useAppContext } from '../../Context/AppContext';
 
 function Item({autos}) {
-    const {variable} = useContext(CartContext)
-    const {prueba} = useContext(CartContext)
+    const { addToCart } = useCartContext();
+    const { products } = useAppContext();
+
+  const handleClick = id => {
+    const findProductInDB = products.find(prod => prod.id === id);
+    console.log('DESDE ITEM: ', findProductInDB);
+
+    if (!findProductInDB) {
+      console.log('Error: no se agrego al carrito.');
+      return;
+    }
+    addToCart(findProductInDB);
+  };
+
     return (
     
         <div className="col-lg">

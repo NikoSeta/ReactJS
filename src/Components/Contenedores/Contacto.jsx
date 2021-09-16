@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 
 function Contacto() {
     return (
-        <div>
+        <div className="container">
             <Link to={"/"}>
                 <button className="btn-sm btn-warning"> Volver a Home</button>
             </Link>

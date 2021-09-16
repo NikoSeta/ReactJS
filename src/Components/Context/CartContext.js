@@ -1,40 +1,76 @@
-import {createContext, useState} from 'react';
+import React, { createContext, useContext, useState } from 'react';
 
-export const CartContext = createContext();
+const CartContext = createContext();
 
-export const CartContextProvider = ({children}) => {
+export const useCartContext = () => useContext(CartContext);
 
-	const [cart, setCart] = useState([]);
+const CartContextProvider = ({ children }) => {
+  const [cart, setCart] = useState([]);
 
-	const addItem = (item, quantity) => {
-		if(isInCart(item.id)) {
-			const updateCart = [...cart];
+  const isInCart = id => cart.find(prod => prod.id === id);
 
-			updateCart.forEach((element) => {
-				if(element.item.id === item.id) {
-					element.quantity += quantity
-				}
-			})
-			setCart(updateCart)
-		} else {
-			setCart([...cart, {item, quantity}])
-		}
-	}
+  const addToCart = product => {
+    //Creamos una copia del state para no alterar el original
+    const newCart = [...cart];
+    //Verificamos si esta en el carrito
+    const productIsInCart = isInCart(product.id);
+    console.log(productIsInCart)
+    //si el producto esta en el carrito...
+    if(productIsInCart) {
+      //Buscamos en el array del carrito el elemento y en una linea le sumamos la cantidad, se puede hacer separado
+      newCart[newCart.findIndex(prod => prod.id === productIsInCart.id)].quantity++;
 
-	console.log(cart)
+      //Actualizamos el carrito
+      setCart(newCart);
+      console.log(cart);
+      //return para cortar la ejecucion
+      return;
 
-	const isInCart = (id) => {
-		return cart.find(element => element.item.id === id)
-	}
+    }
 
-	const removeItem = (itemId) => {
-		const cartFilter = cart.filter(element => element.item.id !== itemId)
-		return setCart(cartFilter)
-	}
+    //Si no esta en el carrito
+    product.quantity = 1;
 
-	return(
-		<CartContext.Provider value={{addItem, removeItem, cart, setCart}}>
-			{children}
-		</CartContext.Provider>
-	)
-}
+    setCart([...newCart, product]);
+    console.log(cart)
+  }
+
+  const borrarFromCart = product => {
+    //Creamos una copia del state para no alterar el original
+    const newCart = [...cart];
+
+    //Verificamos si esta en el carrito
+    const productIsInCart = isInCart(product.id);
+
+    console.log(productIsInCart);
+
+    if(!productIsInCart) {
+      console.log('EL PRODUCTO NO ESTA EN EL CARRITO');
+      return;
+    }
+
+    const borrarProduct = newCart.filter(prod => prod.id !== productIsInCart.id);
+
+    setCart(borrarProduct);
+    console.log(cart)
+
+  }
+
+  const borrarCart = () => setCart([]);
+
+  return (
+    <CartContext.Provider
+      value={{
+        cart,
+        setCart,
+        addToCart,
+        borrarFromCart,
+        borrarCart
+      }}
+    >
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+export default CartContextProvider;

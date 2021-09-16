@@ -1,19 +1,26 @@
+import React from 'react';
+import { useCartContext } from '../../Context/CartContext';
+import CartItem from './CartItem';
 
-import { NavLink } from 'react-router-dom'
-import { useAppContext } from '../../../AppContext/AppContext'
+export default function Cart() {
+  const { cart, deleteCart } = useCartContext();
 
-const Carrito = () => {
+  return (
+    <div className="container">
+        <button className="btn-warning">Volver a home</button>
+        <h1 className="text-warning">Carrito</h1>
 
-    const {borrarListado} = useAppContext() 
-
-    return (
-        <div>
-            <NavLink to={"/"}>
-                <button className="btn-sm btn-warning"> Volver a Home</button>
-            </NavLink>
-            <h5>Carrito</h5>
-           <button onClick={borrarListado} >Borrar listado Cart</button>          
-        </div>
-    )
+        {cart.length !== 0 && (
+            <>
+            <button className="btn-sm btn-warning" onClick={deleteCart}>Limpiar carrito</button>
+            {cart.map(product => (
+                <CartItem key={product.id} product={product} />
+            ))}
+            </>
+        )}
+        {cart.length === 0 && <p>No hay productos en el carrito</p>}
+    </div>
+  );
 }
-export default Carrito
+
+
