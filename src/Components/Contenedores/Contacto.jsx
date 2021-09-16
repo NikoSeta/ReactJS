@@ -1,6 +1,11 @@
+import {Link} from 'react-router-dom';
 
 function Contacto() {
     return (
+        <div>
+            <Link to={"/"}>
+                <button className="btn-sm btn-warning"> Volver a Home</button>
+            </Link>
         <form className="container">
             <div className="form-row">
                 <div className="form-group col-md-6">
@@ -26,6 +31,7 @@ function Contacto() {
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
+        </div>
     )
 }
 

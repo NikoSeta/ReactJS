@@ -1,7 +1,7 @@
 import ItemList from './ItemList'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router'
-import { auto } from '../../../Utils/promesas'
+import { getAuto } from '../../../Utils/promesas'
 
 function ItemListContainer() {
     const [autos, setItems] = useState([])
@@ -11,14 +11,13 @@ function ItemListContainer() {
     useEffect(() => {
 
         if(category===undefined){
-            auto
-            .then((resp)=> setItems(resp) ) // guarda en estado.
+            getAuto
+            .then((resp)=> setItems(resp) )
          }else{
-             auto
+             getAuto
              .then((resp)=> setItems(resp.filter( r => category===r.categoria)) ) 
         }
-    }, [category])
-
+    }, [category])    
     return (
         <>
         <ItemList autos={autos} />

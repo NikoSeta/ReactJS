@@ -1,12 +1,17 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { NavLink } from 'react-router-dom'
 import ford from '../../../Img/Ford.jpg'
-import { autos } from '../../../Utils/promesas'
+import { CartContext } from '../../Context/CartContext';
 
 
-function Item() {
+function Item({autos}) {
+    const {variable} = useContext(CartContext)
+    const {prueba} = useContext(CartContext)
     return (
+    
         <div className="col-lg">
+            {variable}
+            {prueba}
             <div className="card" style={{width: '25rem'}}>
                 <img src={ford} class="card-img-top"/>
                 <div className="card-body">

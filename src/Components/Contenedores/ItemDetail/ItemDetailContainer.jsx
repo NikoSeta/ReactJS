@@ -3,7 +3,7 @@ import { getAuto } from "../../../Utils/promesas";
 import ItemDetail from "./ItemDetail";
 
 
-function ItemDetailContainer (props){
+function ItemDetailContainer (){
     const [ auto, setAuto ] = useState({})
     const [loading, setloading] = useState(true)
     

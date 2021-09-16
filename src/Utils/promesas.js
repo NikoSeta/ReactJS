@@ -14,23 +14,10 @@ export const autos = [
     {id: 12, marca: "Renault", modelo: "Duster", año: 2012, categoria: "camioneta",descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", precio: 24000, imgUrl: "./Img/Renault-Duster.webp"},
 ]
 
-function getAutos(id) {
-    if (id===undefined) {
-        return autos
-    }else{
-        return autos.find( auto=> auto.id === id)
-    }
-}
-
-export let auto = new Promise((resolve) => {
-    setTimeout(() => {
-        resolve(getAutos(0));        
-    }, 3000);
-}); //esta funcion me trae un objeto del array
-
 export const getAuto = new Promise((resuelto)=>{
     setTimeout(() => {
         resuelto(autos)        
     }, 2000);
-});//esta funcion me trae un array
+});
+console.log(getAuto);
 
