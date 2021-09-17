@@ -22,8 +22,6 @@ function Item({autos}) {
     return (
     
         <div className="col-lg">
-            {variable}
-            {prueba}
             <div className="card" style={{width: '25rem'}}>
                 <img src={ford} class="card-img-top"/>
                 <div className="card-body">

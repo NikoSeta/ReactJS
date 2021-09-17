@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { useParams } from "react-router";
 import { getAuto } from "../../../Utils/promesas";
 import ItemDetail from "./ItemDetail";
 
@@ -14,7 +15,21 @@ function ItemDetailContainer (){
            setloading(false)
        }) 
     }, [])
+
+
+    const { selector } = useParams();
+        useEffect(() =>{
+            if (selector) {
+                getAuto.then((res) =>{
+                    setAuto(
+                        res.filter ((categorias)=> categorias.categoria === selector));
+                });
+            }else {
+                getAuto.then((res) => {setAuto(res);})
+            }
+        }) [selector]
     
+
     return (
         <>
             {loading ? 
