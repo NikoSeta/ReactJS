@@ -9,7 +9,7 @@ function Item({autos}) {
                 <img src ={ford} />
                 <h5 className="card-title">{autos.marca} {autos.modelo} {autos.año}</h5>
                 <p className="card-text">{autos.descripcion}</p>
-                <h5 className="card-text">{autos.precio}</h5>
+                <h5 className="card-text">${autos.precio}</h5>
 				<ItemContador/>
             </div>
 		</div>

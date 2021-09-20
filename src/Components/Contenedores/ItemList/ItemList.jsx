@@ -1,8 +1,8 @@
 import Item from './Item';
-import {autos} from '../../../Utils/promesas'
 
 
-function ItemList() {
+
+function ItemList({autos}) {
     return (
         <div className="container">
             <div className="row">

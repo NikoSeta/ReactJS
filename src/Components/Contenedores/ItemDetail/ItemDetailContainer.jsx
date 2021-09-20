@@ -7,6 +7,18 @@ import ItemDetail from "./ItemDetail";
 function ItemDetailContainer (){
     const [ auto, setAuto ] = useState({})
     const [loading, setloading] = useState(true)
+    const { selector } = useParams();
+
+    useEffect( () => {
+        if (selector) {
+            getAuto.then((res) =>{
+                setAuto(
+                    res.filter ((categorias)=> categorias.categoria === selector));
+            });
+        }else {
+            getAuto.then((res) => {setAuto(res);})
+        }
+    }, [selector])
     
     useEffect(() => {
        getAuto
@@ -16,20 +28,6 @@ function ItemDetailContainer (){
        }) 
     }, [])
 
-
-    const { selector } = useParams();
-        useEffect(() =>{
-            if (selector) {
-                getAuto.then((res) =>{
-                    setAuto(
-                        res.filter ((categorias)=> categorias.categoria === selector));
-                });
-            }else {
-                getAuto.then((res) => {setAuto(res);})
-            }
-        }) [selector]
-    
-
     return (
         <>
             {loading ? 
@@ -37,7 +35,6 @@ function ItemDetailContainer (){
                 : 
                     <ItemDetail auto={auto}  />
             }
-            
         </>
     )
 }

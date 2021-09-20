@@ -24,9 +24,9 @@ function ItemContador() {
 
   return (
     <div>
-      <a className="text-warning text-decoration-none">Agregar más</a>
+      <a className="text-decoration-none">Agregar más</a>
       <button type="button" class="resta btn-sm btn-warning disabled" role="button" aria-disabled="false" data-bs-toggle="button" autocomplete="off" onClick={handlerClickRestar}>-</button>
-      <label className="text-warning text-decoration-none">{cantidad}</label>
+      <label className="text-decoration-none">{cantidad}</label>
       <button className="btn-sm btn-warning" onClick={handlerClick}>+</button>
       {
         cambiarBtn ? <Link to={'/carrito/carrito'}><button  className="btn-sm btn-warning">Terminar compra</button></Link>
