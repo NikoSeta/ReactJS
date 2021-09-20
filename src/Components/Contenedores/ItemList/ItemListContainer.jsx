@@ -17,7 +17,10 @@ function ItemListContainer() {
              getAuto
              .then((resp)=> setItems(resp.filter( r => category===r.categoria)) ) 
         }
-    }, [category])    
+    }, [category])   
+    
+    
+
     return (
         <>
         <ItemList autos={autos} />

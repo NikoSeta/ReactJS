@@ -15,12 +15,12 @@ function NavBar() {
                 <div className='collapse navbar-collapse' id='navbarSupportedContent'>
                     <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
                         <li className='nav-item'>
-                            <Link to='/category/autos' id="neon-btn" aria-current='page'>
+                            <Link to='/categoria/auto' id="neon-btn" aria-current='page'>
                                 Autos
                             </Link>
                         </li>
                         <li className='nav-item'>
-                            <Link to='/category/camionetas' id="neon-btn" aria-current='page'>
+                            <Link to='/categoria/camioneta' id="neon-btn" aria-current='page'>
                                 Camionetas
                             </Link>
                         </li>
