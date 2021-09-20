@@ -7,18 +7,18 @@ export const useCartContext = () => useContext(CartContext);
 const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const isInCart = id => cart.find(prod => prod.id === id);
+  const isInCart = id => cart.find(auto => auto.id === id);
 
-  const addToCart = product => {
+  const addToCart = auto => {
     //Creamos una copia del state para no alterar el original
     const newCart = [...cart];
     //Verificamos si esta en el carrito
-    const productIsInCart = isInCart(product.id);
-    console.log(productIsInCart)
+    const carsIsInCart = isInCart(auto.id);
+    console.log(carsIsInCart)
     //si el producto esta en el carrito...
-    if(productIsInCart) {
+    if(carsIsInCart) {
       //Buscamos en el array del carrito el elemento y en una linea le sumamos la cantidad, se puede hacer separado
-      newCart[newCart.findIndex(prod => prod.id === productIsInCart.id)].quantity++;
+      newCart[newCart.findIndex(auto => auto.id === carsIsInCart.id)].quantity++;
 
       //Actualizamos el carrito
       setCart(newCart);
@@ -29,27 +29,25 @@ const CartContextProvider = ({ children }) => {
     }
 
     //Si no esta en el carrito
-    product.quantity = 1;
+    auto.quantity = 1;
 
-    setCart([...newCart, product]);
+    setCart([...newCart, auto]);
     console.log(cart)
   }
 
-  const borrarFromCart = product => {
+  const borrarFromCart = auto => {
     //Creamos una copia del state para no alterar el original
     const newCart = [...cart];
 
     //Verificamos si esta en el carrito
-    const productIsInCart = isInCart(product.id);
+    const carsIsInCart = isInCart(auto.id);
+    console.log(carsIsInCart);
 
-    console.log(productIsInCart);
-
-    if(!productIsInCart) {
+    if(!carsIsInCart) {
       console.log('EL PRODUCTO NO ESTA EN EL CARRITO');
       return;
     }
-
-    const borrarProduct = newCart.filter(prod => prod.id !== productIsInCart.id);
+    const borrarProduct = newCart.filter(prod => prod.id !== carsIsInCart.id);
 
     setCart(borrarProduct);
     console.log(cart)
@@ -66,8 +64,7 @@ const CartContextProvider = ({ children }) => {
         addToCart,
         borrarFromCart,
         borrarCart
-      }}
-    >
+      }}>
       {children}
     </CartContext.Provider>
   );

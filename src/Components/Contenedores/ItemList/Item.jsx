@@ -6,17 +6,17 @@ import { useAppContext } from '../../Context/AppContext';
 
 function Item({autos}) {
     const { addToCart } = useCartContext();
-    const { products } = useAppContext();
+    const { car } = useAppContext();
 
-  const handleClick = id => {
-    const findProductInDB = products.find(prod => prod.id === id);
-    console.log('DESDE ITEM: ', findProductInDB);
+  const handleClick  = id => {
+    const findAutosInDB = car.find(car => car.id === id);
+    console.log('DESDE ITEM: ', findAutosInDB);
 
-    if (!findProductInDB) {
+    if (!findAutosInDB) {
       console.log('Error: no se agrego al carrito.');
       return;
     }
-    addToCart(findProductInDB);
+    addToCart(findAutosInDB);
   };
 
     return (

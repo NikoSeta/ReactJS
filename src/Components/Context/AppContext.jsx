@@ -1,21 +1,33 @@
-import React, { createContext, useContext, useState } from 'react';
-import {autos} from '../../Utils/promesas'
-const AppContext = createContext();
+import {useState, createContext, useContext} from 'react'
+import { autos } from '../../Utils/promesas'
 
-export const useAppContext = () => useContext(AppContext);
+const AppContext = createContext()
 
-const AppContextProvider = ({ children }) => {
-  const [products, setProducts] = useState({autos});
+export const useAppContext = () => useContext(AppContext)
 
-  return (
-    <AppContext.Provider
-      value={{
-        products
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  );
-};
 
-export default AppContextProvider;
+function AppContextProvider({children}) {
+    const [car, setCar] = useState([ autos ])
+   
+    function agregarAlCarrito(prod, cant){
+        setCar([...car, {item: prod, quantity: cant}])
+    }
+
+    const borrarListado=()=>{
+        setCar([])
+    }
+   
+   
+    console.log(car)
+    return (
+        <AppContext.Provider value={{
+            car,
+            agregarAlCarrito,
+            borrarListado
+        }}>
+            {children}
+        </AppContext.Provider>
+    )
+}
+
+export default AppContextProvider
