@@ -1,4 +1,4 @@
-import firebase from "firebase"
+import firebase from 'firebase'
 import 'firebase/firestore'
 
 const firebaseConfig = {
@@ -8,11 +8,7 @@ const firebaseConfig = {
   storageBucket: "car-sale-react.appspot.com",
   messagingSenderId: "388596123777",
   appId: "1:388596123777:web:d0268b8694fd627be92580"
-};
-
-const app = firebase.initializeApp(firebaseConfig);
-
-export function getFirestore(){
-
-    return firebase.firestore(app)
 }
+
+const app = firebase.initializeApp(firebaseConfig)
+export function getFirestore(){ return firebase.firestore(app) }

@@ -1,39 +1,39 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import { getAuto } from "../../../Utils/promesas";
+import { autos, getAuto } from '../../../Utils/promesas'
 import ItemDetail from "./ItemDetail";
 
-
-function ItemDetailContainer (){
-    const [ auto, setAuto ] = useState({})
-    const [loading, setloading] = useState(true)
-    const { selector } = useParams();
-
-    useEffect( () => {
-        if (selector) {
-            getAuto.then((res) =>{
-                setAuto(
-                    res.filter ((categorias)=> categorias.categoria === selector));
-            });
-        }else {
-            getAuto.then((res) => {setAuto(res);})
-        }
-    }, [selector])
-    
+function ItemDetailContainer(props) {
+    const [ auto, setAuto ] = useState({})//inicia como objeto vacío porque va a recibir un objeto
+    const [loading, setLoading] = useState(true)
+    const id = props.match.params.id;
+    const promise = new Promise ((resolve, reject) =>  {
+        const buscarAuto = autos.find((p) => p.id === parseInt(id));
+        if (buscarAuto){
+            resolve(buscarAuto)
+        }else{
+            reject('no hay autos');
+        };
+    });
     useEffect(() => {
-       getAuto
-       .then(resp => {
-           setAuto(resp)
-           setloading(false)
-       }) 
+        promise.then(res => setTimeout (() => setAuto(res), 2000))
+        .catch(err => console.log(err));
+    }, []);//con [] se ejecuta solo una vez.
+    useEffect(() => {
+        getAuto
+        .then(resp => {
+            setAuto(resp)
+            setLoading(false)
+        })
     }, [])
-
     return (
         <>
             {loading ? 
-                    <h2 className="text-warning">Cargando Productos...</h2>
+                <h3 className="text-warning">Cargando Producto...</h3>
                 : 
-                    <ItemDetail auto={auto}  />
+                <div>
+                    <ItemDetail auto={auto}/>                   
+                </div>
             }
         </>
     )

@@ -1,33 +1,26 @@
 import {useState, createContext, useContext} from 'react'
-import { autos } from '../../Utils/promesas'
 
 const AppContext = createContext()
-
 export const useAppContext = () => useContext(AppContext)
 
-
 function AppContextProvider({children}) {
-    const [car, setCar] = useState([ autos ])
+    const [autos, setAuto] = useState([])
    
-    function agregarAlCarrito(prod, cant){
-        setCar([...car, {item: prod, quantity: cant}])
+    function agregarAlCarrito(auto, cantidad){
+        setAuto([...autos, {item: auto, quantity: cantidad}])
     }
-
-    const borrarListado=()=>{
-        setCar([])
+    const borrarLista=()=>{
+        setAuto([])
     }
    
-   
-    console.log(car)
-    return (
+return (
         <AppContext.Provider value={{
-            car,
+            autos,
             agregarAlCarrito,
-            borrarListado
+            borrarLista
         }}>
             {children}
         </AppContext.Provider>
     )
 }
-
 export default AppContextProvider

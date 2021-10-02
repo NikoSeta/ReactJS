@@ -1,38 +1,22 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
 import ford from '../../../Img/Ford.jpg'
-import { useCartContext } from '../../Context/CartContext';
-import { useAppContext } from '../../Context/AppContext';
+import '../../CSS/Card1.css'
 
-function Item({autos}) {
-    const { addToCart } = useCartContext();
-    const { car } = useAppContext();
-
-  const handleClick  = id => {
-    const findAutosInDB = car.find(car => car.id === id);
-    console.log('DESDE ITEM: ', findAutosInDB);
-
-    if (!findAutosInDB) {
-      console.log('Error: no se agrego al carrito.');
-      return;
-    }
-    addToCart(findAutosInDB);
-  };
-
+function Item({ autos }) {
+    const {id, marca, modelo, año, categoria, precio} = autos
     return (
-    
-        <div className="col-lg">
+        <div className="col-lg" id="space">
             <div className="card" style={{width: '25rem'}}>
-                <img src={ford} class="card-img-top"/>
+                <img src={ford} class="card-img-top" alt={categoria}/>
                 <div className="card-body">
-                <h5 className="card-title">{autos.marca} {autos.modelo}</h5>
-                <p>Precio ${autos.precio}</p>
-                <NavLink to ={'/detalle/${id}'}><a className="btn btn-primary">Ver más</a></NavLink>
+                <h3 className="card-title text-warning">{marca} {modelo}</h3>
+                <h5 className="text-warning">Año {año}</h5>
+                <h5 className="text-warning">Precio ${precio}</h5>
+                <NavLink to ={`/detail/${id}`}><p className="btn btn-danger">Ver más</p></NavLink>
                 </div>
             </div>
-        </div>            
-            
+        </div>
     )
 }
-
 export default Item
