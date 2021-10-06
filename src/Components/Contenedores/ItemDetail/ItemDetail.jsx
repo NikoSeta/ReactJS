@@ -1,6 +1,12 @@
 import ItemCount from '../ItemCount/ItemCount';
+import {useAppContext} from '../../../Context/AppContext'
 
 function ItemDetail({auto})  { 
+    const { agregarAlCarrito } = useAppContext()
+    const addItem=(cant)=>{  
+        console.log(cant);
+        agregarAlCarrito(auto, cant)        
+    }
     return (
         <>
             <div className="col-md-4">
@@ -11,7 +17,7 @@ function ItemDetail({auto})  {
                     <h5 className="card-title">{auto.marca} {auto.modelo} {auto.año}</h5>
                     <p className="card-text">{auto.descripcion}</p>
                     <h5 className="card-text">${auto.precio}</h5>   
-                    <ItemCount/>
+                    <ItemCount initial={1} addItem={addItem}/>
                     </div>
                 </div>
         </>

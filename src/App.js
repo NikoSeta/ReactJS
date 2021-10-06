@@ -6,22 +6,22 @@ import ItemDetailContainer from './Components/Contenedores/ItemDetail/ItemDetail
 import ItemListContainer from './Components/Contenedores/ItemList/ItemListContainer';
 import Contacto from './Components/Contenedores/Contacto';
 import Cart from './Components/Contenedores/Carrito/Cart';
-import {CartContextProvider} from './Context/CartContext';
+import AppContextProvider from './Context/AppContext';
 
 function App() {
   return (
     <Router>
       <div className='App'>
-      <CartContextProvider>
-        <NavBar/>
-          <Switch>
-            <Route exact path ='/' component = {ItemListContainer} />
-            <Route exact path = '/detail/:id' component = {ItemDetailContainer}  />
-            <Route exact path = '/contacto/:contacto' component = {Contacto} />
-            <Route exact path ='/category/:category' component = {ItemListContainer} />
-            <Route exact path ='/carrito/:carrito' component = {Cart} />
-          </Switch>
-      </CartContextProvider>
+        <AppContextProvider>
+          <NavBar/>
+            <Switch>
+              <Route exact path ='/' component = {ItemListContainer} />
+              <Route exact path = '/detail/:id' component = {ItemDetailContainer}  />
+              <Route exact path = '/contacto/:contacto' component = {Contacto} />
+              <Route exact path ='/category/:category' component = {ItemListContainer} />
+              <Route exact path ='/carrito/:carrito' component = {Cart} />
+            </Switch>
+        </AppContextProvider>
       </div>
     </Router>
   );

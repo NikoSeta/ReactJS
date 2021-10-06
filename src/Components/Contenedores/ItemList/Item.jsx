@@ -4,11 +4,11 @@ import ford from '../../../Img/Ford.jpg'
 import '../../CSS/Card1.css'
 
 function Item({ autos }) {
-    const {id, marca, modelo, año, categoria, precio} = autos
+    const {id, marca, modelo, año, categoria, precio, imgId} = autos
     return (
         <div className="col-lg" id="space">
             <div className="card" style={{width: '25rem'}}>
-                <img src={ford} class="card-img-top" alt={categoria}/>
+                <img src={ford} class="card-img-top" alt={marca}/>
                 <div className="card-body">
                 <h3 className="card-title text-warning">{marca} {modelo}</h3>
                 <h5 className="text-warning">Año {año}</h5>

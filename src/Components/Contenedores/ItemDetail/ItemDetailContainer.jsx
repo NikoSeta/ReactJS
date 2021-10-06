@@ -1,31 +1,38 @@
-import { useState, useEffect } from "react";
-import { useParams } from "react-router";
-import { autos, getAuto } from '../../../Utils/promesas'
+import { useState, useEffect, useParams } from "react";
+import { autos } from '../../../Utils/promesas'
 import ItemDetail from "./ItemDetail";
+import { getFirestore } from "../../DataBase/Firebase";
 
 function ItemDetailContainer(props) {
     const [ auto, setAuto ] = useState({})//inicia como objeto vacío porque va a recibir un objeto
+    const [ categorias, setCategorias ] = useState([])
     const [loading, setLoading] = useState(true)
-    const id = props.match.params.id;
-    const promise = new Promise ((resolve, reject) =>  {
-        const buscarAuto = autos.find((p) => p.id === parseInt(id));
-        if (buscarAuto){
-            resolve(buscarAuto)
-        }else{
-            reject('no hay autos');
-        };
-    });
+
     useEffect(() => {
-        promise.then(res => setTimeout (() => setAuto(res), 2000))
-        .catch(err => console.log(err));
-    }, []);//con [] se ejecuta solo una vez.
-    useEffect(() => {
-        getAuto
+        const db = getFirestore()
+        db.collection('autos').doc('Ez8S7OHxbLWmLLFukuut').get()
         .then(resp => {
-            setAuto(resp)
-            setLoading(false)
+            if(resp.exists){
+                setAuto({id: resp.id, ...resp.data()})
+            }
         })
+        .catch(err=>console.log(err))
+        .finally(()=> setLoading(false))
     }, [])
+
+    useEffect(() => {
+        const db = getFirestore()
+        db.collection('categorias').get()
+        .then(resp => {
+            if(resp.size!==0){
+                setCategorias( resp.docs.map(cat => ( {id: cat.id, ...cat.data()} )) )
+            }
+        } )
+        .catch(err=>console.log(err))
+        .finally(()=> setLoading(false))
+    }, [])
+    console.log(auto)
+    console.log(categorias)
     return (
         <>
             {loading ? 

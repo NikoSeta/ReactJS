@@ -10,24 +10,24 @@ function Contacto() {
             <form>
                 <div className="form-row">
                     <div className="form-group col-md-6">
-                        <label className="text-warning" for="inputName">Nombre</label>
-                        <input type="name" class="form-control" id="inputName" placeholder="Nombre"/>
+                        <label className="text-warning">Nombre</label>
+                        <input type="name" class="form-control"/>
                     </div>
                     <div className="form-group col-md-6">
-                        <label className="text-warning" for="lastName">Apellido</label>
-                        <input type="lastName" class="form-control" id="lastName" placeholder="Apellido"/>
+                        <label className="text-warning">Apellido</label>
+                        <input type="lastName" class="form-control"/>
                     </div>
                     <div class="form-group">
-                        <label className="text-warning" for="inputEmail">Email</label>
-                        <input type="text" class="form-control" id="inputEmail" placeholder="Email"/>
+                        <label className="text-warning">Email</label>
+                        <input type="text" class="form-control"/>
                     </div>
                     <div className="form-group">
-                        <label className="text-warning" for="inputAddress2">Teléfono</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Teléfono"/>
+                        <label className="text-warning">Teléfono</label>
+                        <input type="text" class="form-control"/>
                     </div>
                     <div className="form-group">
-                        <label for="exampleFormControlTextarea"></label>
-                        <textarea class="form-control" id="exampleFormControlTextarea" rows="3"></textarea>
+                        <label className="text-warning" >Dejanos tu consulta.</label>
+                        <textarea class="form-control" rows="3"></textarea>
                     </div>
                 </div>
                     <button type="submit" class="btn btn-warning">Enviar</button>
