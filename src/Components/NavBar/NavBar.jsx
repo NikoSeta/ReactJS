@@ -3,8 +3,10 @@ import React from 'react'
 import '../CSS/NavBar.css'
 import  CartWidget from './CartWidget'
 import ImgTitulo from '../../Img/ImgTitulo.jpg'
+import {useAppContext} from '../../Context/AppContext'
 
 function NavBar() {
+    const { iconCart } = useAppContext()
     return (
         <div className='navbar navbar-expand-lg'>
             <div className='container'>
@@ -27,7 +29,7 @@ function NavBar() {
                     <form className='d-flex'>
                         <input className='form-control me-2' type='search' placeholder='Buscar' aria-label='Search'/>
                         <button id="neon-btn" className='btn btn-outline-danger' type='submit'>Busqueda</button>
-                        <Link to='/carrito/carrito'><CartWidget/></Link>
+                        <Link to='/carrito/carrito'><CartWidget/>{ iconCart() }</Link>
                     </form>
                 </div>
             </div>

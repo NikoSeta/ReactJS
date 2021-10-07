@@ -1,5 +1,4 @@
 import { useState, useEffect, useParams } from "react";
-import { autos } from '../../../Utils/promesas'
 import ItemDetail from "./ItemDetail";
 import { getFirestore } from "../../DataBase/Firebase";
 
@@ -7,18 +6,18 @@ function ItemDetailContainer(props) {
     const [ auto, setAuto ] = useState({})//inicia como objeto vacío porque va a recibir un objeto
     const [ categorias, setCategorias ] = useState([])
     const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
+    const {car} = useParams()
+    useEffect((car) => {
         const db = getFirestore()
-        db.collection('autos').doc('Ez8S7OHxbLWmLLFukuut').get()
+        db.collection('autos').doc(car).get()
         .then(resp => {
             if(resp.exists){
                 setAuto({id: resp.id, ...resp.data()})
             }
         })
-        .catch(err=>console.log(err))
+        .catch(err=>alert(err))
         .finally(()=> setLoading(false))
-    }, [])
+    }, [car])
 
     useEffect(() => {
         const db = getFirestore()
@@ -31,8 +30,6 @@ function ItemDetailContainer(props) {
         .catch(err=>console.log(err))
         .finally(()=> setLoading(false))
     }, [])
-    console.log(auto)
-    console.log(categorias)
     return (
         <>
             {loading ? 

@@ -1,15 +1,14 @@
 import ItemList from './ItemList'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router'
-import { getAuto } from '../../../Utils/promesas'
 import { getFirestore } from '../../DataBase/Firebase'
 
 function ItemListContainer() {
     const [autos, setItems] = useState([])
     const { category } = useParams()
     useEffect(() => {       
-        const db = getFirestore()
-        const queryDB = db.collection('autos')
+        const dataBase = getFirestore()
+        const queryDB = dataBase.collection('autos')
         const conditionQuery =  category ? 
                 queryDB.where('categoria', '==', category) 
             : 

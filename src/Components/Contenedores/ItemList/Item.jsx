@@ -4,7 +4,7 @@ import ford from '../../../Img/Ford.jpg'
 import '../../CSS/Card1.css'
 
 function Item({ autos }) {
-    const {id, marca, modelo, año, categoria, precio, imgId} = autos
+    const {id, marca, modelo, año, precio, imgId} = autos
     return (
         <div className="col-lg" id="space">
             <div className="card" style={{width: '25rem'}}>
