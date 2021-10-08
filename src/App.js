@@ -7,14 +7,12 @@ import ItemListContainer from './Components/Contenedores/ItemList/ItemListContai
 import Contacto from './Components/Contenedores/Contacto';
 import Cart from './Components/Contenedores/Carrito/Cart';
 import AppContextProvider from './Context/AppContext';
-import { CartContext } from './Context/CartContext';
 
 function App() {
   return (
     <Router>
       <div className='App'>
         <AppContextProvider>
-          <CartContext.Provider>
           <NavBar/>
             <Switch>
               <Route exact path ='/' component = {ItemListContainer} />
@@ -23,7 +21,6 @@ function App() {
               <Route exact path ='/category/:category' component = {ItemListContainer} />
               <Route exact path ='/carrito/:carrito' component = {Cart} />
             </Switch>
-            </CartContext.Provider>
         </AppContextProvider>
       </div>
     </Router>

@@ -1,28 +1,39 @@
-import React from 'react'
+import { getFirestore } from '../../DataBase/Firebase'
+import firebase from "firebase";
+import { useAppContext } from '../../../Context/AppContext';
 
-function Form() {
+const Form = ({inputs, formData, setFormData, inatialState}) => {    
+    const {auto , precioTotal, borrarListado} = useAppContext() 
+    function handleChange(e) {
+        setFormData(
+            {...formData, [e.target.name]: e.target.value}
+        )
+    } 
+    function handleSubmit(e){
+        e.preventDefault()
+        const newOrder={
+            buyer: formData,
+            itmes: auto,
+            date: firebase.firestore.Timestamp.fromDate(new Date()),
+            total: precioTotal()
+        }
+    const db = getFirestore()
+    const orders = db.collection('orders')
+    orders.add(newOrder)
+        .then(resp => alert(`Gracias por us compra su número de orden es: ${resp.id}`))
+        .catch(err => console.log(err))
+        .finally(()=>{
+             setFormData(inatialState)
+             borrarListado()
+        })
+    }
     return (
         <>
-            <form>
-                <tr>
-                    <input type="text"  placeholder="Nombre" name="nombre" />
-                </tr>
-                <tr>
-                    <input type="text"  placeholder="Teléfono" name="tel" />
-                </tr>
-                <tr>
-                    <input type="email" placeholder="E-mail" name="email" />
-                </tr>
-                <tr>
-                    <input type="email" placeholder="Confirme E-mail" name="email2" />
-                </tr>
-                <tr>
-                    <input type="domicilio" placeholder="Domicilio" name="domicilio" />
-                </tr>
+             <form onSubmit={handleSubmit} onChange={handleChange}>
+                {inputs.map(inp => <input type={inp.type} placeholder={inp.placeholder} name={inp.name} value={inp.value} />)}
                 <button className="btn-warning">Terminar compra</button>
-            </form>    
+            </form>  
         </>
     )
 }
-
 export default Form

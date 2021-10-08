@@ -4,7 +4,7 @@ import CarritoImg from '../../Img/carrito.jpg';
 function CartWidget() {
     return (
         <>
-        <img src= {CarritoImg} alt="carrito"/>
+            <img src= {CarritoImg} alt="carrito"/>
         </>
     )
 }

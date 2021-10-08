@@ -2,6 +2,7 @@ import { useState } from "react";
 import 'firebase/firestore'
 import ListCart from "./ListCart";
 import Form from "./Form";
+import { Link } from "react-router-dom";
 
 const inatialState = {
     nombre: '',
@@ -21,6 +22,9 @@ const Cart = () => {
     ]
     return (
         <div>
+            <Link to={"/"}>
+                <button className="btn-sm btn-warning"> Volver a Home</button>
+            </Link>
             <ListCart />
             <Form 
                 inputs={inputs} 

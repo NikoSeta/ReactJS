@@ -20,6 +20,6 @@ function ItemCount({initial, stock, addItem}) {
       {cambiarBtn ? <Link to={'/carrito/carrito'}><button  className="btn-sm btn-warning">Terminar compra</button></Link>
                   :  <button className="btn-sm btn-warning" onClick={handlerOnAdd}>Agregar al carrito</button>}
     </div>
- )
+  )
 };
 export default ItemCount

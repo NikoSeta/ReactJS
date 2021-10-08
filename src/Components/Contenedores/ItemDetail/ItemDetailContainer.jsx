@@ -2,7 +2,7 @@ import { useState, useEffect, useParams } from "react";
 import ItemDetail from "./ItemDetail";
 import { getFirestore } from "../../DataBase/Firebase";
 
-function ItemDetailContainer(props) {
+function ItemDetailContainer() {
     const [ auto, setAuto ] = useState({})//inicia como objeto vacío porque va a recibir un objeto
     const [ categorias, setCategorias ] = useState([])
     const [loading, setLoading] = useState(true)
@@ -17,8 +17,7 @@ function ItemDetailContainer(props) {
         })
         .catch(err=>alert(err))
         .finally(()=> setLoading(false))
-    }, [car])
-
+    }, [auto])
     useEffect(() => {
         const db = getFirestore()
         db.collection('categorias').get()
@@ -26,18 +25,16 @@ function ItemDetailContainer(props) {
             if(resp.size!==0){
                 setCategorias( resp.docs.map(cat => ( {id: cat.id, ...cat.data()} )) )
             }
-        } )
+        })
         .catch(err=>console.log(err))
         .finally(()=> setLoading(false))
-    }, [])
+    }, [categorias])
     return (
         <>
             {loading ? 
                 <h3 className="text-warning">Cargando Producto...</h3>
                 : 
-                <div>
-                    <ItemDetail auto={auto}/>                   
-                </div>
+                 <ItemDetail car={car}/>
             }
         </>
     )

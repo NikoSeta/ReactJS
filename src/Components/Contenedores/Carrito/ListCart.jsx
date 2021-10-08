@@ -6,14 +6,14 @@ const ListCart = () => {
     const {auto , precioTotal} = useAppContext() 
     return (
         <>
-            {auto.map(pro =>  <div> 
-                                    <p>{ pro.item.name}</p>
-                                    <p>{ pro.quantity}</p>
-                                </div>
+            {auto.map(pro =>  
+                <div> 
+                    <p>{ pro.item.name}</p>
+                    <p>{ pro.quantity}</p>
+                </div>
             )}
             {precioTotal()}
         </>
     )
 }
-
 export default ListCart
