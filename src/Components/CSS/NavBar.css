@@ -1,10 +1,25 @@
-/*NavBar*/
 .navbar{
-    background-color: black;
+    background-color: rgb(0, 0, 0);
 }
 .navbar div img{
     padding-right: 20px;
 }
 .btn{
     margin-right: 20px;
+}
+
+#neon-btn {
+    color: red;
+    padding: 8px 20px;
+    letter-spacing: 5px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0,2s;
+}
+
+#neon-btn:hover{
+    background-color: red;
+    box-shadow: 0 0 10px red, 0 0 40px red, 0 0 80px red;
+    color: black;
+    transition: 1s;
 }

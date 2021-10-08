@@ -1,12 +1,12 @@
-import React from 'react'
+import Item from './Item';
 
-function ItemList() {
+function ItemList({ autos }) {
     return (
-        <div>
-            
+        <div className="container">
+            <div className="row">
+                 {autos.map( (item) => ( <Item key={item} autos={item}/> ) ) }
+            </div>
         </div>
     )
 }
-
-export default ItemList
-
+export default ItemList;

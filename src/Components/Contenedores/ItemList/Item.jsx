@@ -1,18 +1,21 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import '../../CSS/Card1.css'
 
-function Item() {
+function Item({ autos }) {
+    const {id, marca, modelo, año, precio, imgId} = autos
     return (
-        <>
-        {Autos.map((auto)=> <div className='card'>
-                                <div className='card-body'>
-                                    <img src={auto.imgUrl} class="card-img-top" alt="..." />
-                                    <h5 className='card-title'>{auto.marca} {auto.modelo}</h5>
-                                    <a href='#' className='btn btn-danger'>Ver más</a>
-                                </div>
-                            </div>)}
-                            
-        </> 
+        <div className="col-lg" id="space">
+            <div className="card" style={{width: '25rem'}}>
+                <img src={imgId} className="card-img-top" alt={marca}/>
+                <div className="card-body">
+                <h3 className="card-title text-warning">{marca} {modelo}</h3>
+                <h5 className="text-warning">Año {año}</h5>
+                <h5 className="text-warning">Precio ${precio}</h5>
+                <NavLink to ={`/detail/${id}`}><p className="btn btn-danger">Ver más</p></NavLink>
+                </div>
+            </div>
+        </div>
     )
 }
-
 export default Item
