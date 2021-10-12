@@ -7,12 +7,12 @@ function Item({ autos }) {
     return (
         <div className="col-lg" id="space">
             <div className="card" style={{width: '25rem'}}>
-                <img src={imgId} className="card-img-top" alt={marca}/>
+                <img src={imgId} class="card-img-top" alt={marca}/>
                 <div className="card-body">
-                <h3 className="card-title text-warning">{marca} {modelo}</h3>
-                <h5 className="text-warning">Año {año}</h5>
-                <h5 className="text-warning">Precio ${precio}</h5>
-                <NavLink to ={`/detail/${id}`}><p className="btn btn-danger">Ver más</p></NavLink>
+                    <h3 className="card-title text-warning">{marca} {modelo}</h3>
+                    <h5 className="text-warning">Año {año}</h5>
+                    <h5 className="text-warning">Precio ${precio}</h5>
+                    <NavLink to ={`/id/${id}`}><p className="btn btn-danger">Ver más</p></NavLink>
                 </div>
             </div>
         </div>

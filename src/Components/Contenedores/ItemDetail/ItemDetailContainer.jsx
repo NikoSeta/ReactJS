@@ -1,4 +1,5 @@
-import { useState, useEffect, useParams } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 import ItemDetail from "./ItemDetail";
 import { getFirestore } from "../../DataBase/Firebase";
 
@@ -17,7 +18,7 @@ function ItemDetailContainer() {
         })
         .catch(err=>alert(err))
         .finally(()=> setLoading(false))
-    }, [auto])
+    }, [car])
     useEffect(() => {
         const db = getFirestore()
         db.collection('categorias').get()
@@ -25,7 +26,7 @@ function ItemDetailContainer() {
             if(resp.size!==0){
                 setCategorias( resp.docs.map(cat => ( {id: cat.id, ...cat.data()} )) )
             }
-        })
+        } )
         .catch(err=>console.log(err))
         .finally(()=> setLoading(false))
     }, [categorias])

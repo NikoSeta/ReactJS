@@ -15,11 +15,11 @@ function App() {
         <AppContextProvider>
           <NavBar/>
             <Switch>
-              <Route exact path ='/' component = {ItemListContainer} />
-              <Route exact path = '/id/:car' component = {ItemDetailContainer}  />
-              <Route exact path = '/contacto/:contacto' component = {Contacto} />
-              <Route exact path ='/category/:category' component = {ItemListContainer} />
-              <Route exact path ='/carrito/:carrito' component = {Cart} />
+              <Route exact path ='/' component = {ItemListContainer}/>
+              <Route exact path = '/id/:car' component = {ItemDetailContainer}/>
+              <Route exact path = '/contacto/:contacto' component = {Contacto}/>
+              <Route exact path ='/category/:category' component = {ItemListContainer}/>
+              <Route exact path ='/carrito/:carrito' component = {Cart}/>
             </Switch>
         </AppContextProvider>
       </div>

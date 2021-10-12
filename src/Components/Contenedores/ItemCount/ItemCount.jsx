@@ -14,7 +14,7 @@ function ItemCount({initial, stock, addItem}) {
   }
   return (
     <div>
-      <button className="resta btn-sm btn-warning disabled" aria-disabled="false" autocomplete="off" onClick={handlerClickRestar}>-</button>
+      <button className="resta btn-sm btn-warning disabled" aria-disabled="false" autoComplete="off" onClick={handlerClickRestar}>-</button>
       <label className="text-warning text-decoration-none">{cantidad}</label>
       <button className="btn-sm btn-warning" onClick={handlerClick}>+</button>
       {cambiarBtn ? <Link to={'/carrito/carrito'}><button  className="btn-sm btn-warning">Terminar compra</button></Link>
