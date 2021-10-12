@@ -1,3 +1,7 @@
+# La página está subida a Netlify
+
+Link a la página: https://jolly-aryabhata-221254.netlify.app/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +72,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Firebase
+
+Se implementó Firebase, como base de datos para almacenar los productos del e-commerce.
+
+# Bootstrap
+
+Se utilizó el framewokr Bootstrap para el maquetado de la página.
+
+Instalacion de Bootstrap:
+
+### `npm install react-bootstrap@next bootstrap@5.1.1`
