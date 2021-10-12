@@ -18,7 +18,7 @@ function ItemDetailContainer() {
         })
         .catch(err=>alert(err))
         .finally(()=> setLoading(false))
-    }, [car])
+    }, [auto])
     useEffect(() => {
         const db = getFirestore()
         db.collection('categorias').get()
