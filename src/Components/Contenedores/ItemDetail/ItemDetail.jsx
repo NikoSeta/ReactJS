@@ -1,12 +1,12 @@
 import ItemCount from '../ItemCount/ItemCount';
 import {useAppContext} from '../../../Context/AppContext'
 
-function ItemDetail({car})  { 
+function ItemDetail({auto})  { 
     const { agregarAlCarrito } = useAppContext()
-    const {imgUrl, marca, modelo, año, descripcion, precio} = car
+    const {imgUrl, marca, modelo, año, descripcion, precio} = auto
     const addItem=(cant)=>{  
         console.log(cant);
-        agregarAlCarrito(car, cant)        
+        agregarAlCarrito(auto, cant)        
     }
     return (
         <>

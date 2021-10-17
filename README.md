@@ -1,7 +1,11 @@
+# Car Sale es un sitio online ficticio, donde se venden autos y camionetas.
+Es una App e-commerce que utiliza filtros para encontrar productos, construida con React, JavaScript y Css, utilizando Firebase como base de datos. 
+
+# Librerias
+Entre las librerias destacadas que utilice para desarrollar esta app estan: -Boostrap y React-Bootstrap: debido a que facilitan mucho el trabajo a la hora de obtener un diseño responsive y esteticamente agradable a la vista. -Firebase: me sirvio para poder tenes una base de datos desde donde poder trabajar con la informacion de mis productos, imagenes, stock, etc. Ademas me permite generar ordenes de compra a nombre del usuario, con fecha e ID propio.
 # La página está subida a Netlify
 
 Link a la página: https://vigorous-spence-d6496c.netlify.app/
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
