@@ -29,7 +29,7 @@ function NavBar() {
                     <form className='d-flex'>
                         <input className='form-control me-2' type='search' placeholder='Buscar' aria-label='Search'/>
                         <button id="neon-btn" className='btn btn-outline-danger' type='submit'>Busqueda</button>
-                        <Link to='/carrito/carrito'><CartWidget/>{ iconCart() }</Link>
+                        <Link to='/carrito/carrito'><CartWidget/></Link><h5 className="text-warning">{ iconCart() }</h5>
                     </form>
                 </div>
             </div>

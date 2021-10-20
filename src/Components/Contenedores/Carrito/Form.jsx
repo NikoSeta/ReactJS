@@ -20,7 +20,7 @@ const Form = ({inputs, formData, setFormData, inatialState}) => {
     const db = getFirestore()
     const orders = db.collection('orders')
     orders.add(newOrder)
-        .then(resp => alert(`Gracias por us compra su número de orden es: ${resp.id}`))
+        .then(resp => alert(`Gracias por su compra su número de orden es: ${resp.id}`))
         .catch(err => console.log(err))
         .finally(()=>{
              setFormData(inatialState)

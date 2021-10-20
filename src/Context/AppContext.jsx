@@ -8,12 +8,12 @@ function AppContextProvider({children}) {
         const [auto, setAuto] = useState([])
         function agregarAlCarrito(prod, cant){
             setAuto([...auto, {item: prod, quantity: cant}])
-        }
+        }//Agregar objetos al cart
         const borrarListado=()=>{
             setAuto([])
         }// Borra todo los items del Cart.
         const precioTotal =()=>{
-            return auto.reduce((acum, valor)=>(acum + (valor.quantity * valor.item.price)), 0) 
+            return auto.reduce((acum, valor)=>(acum + (valor.quantity * valor.item.precio)), 0) 
         }// Suma el costo total de los items.
         const iconCart = () => {
             return auto.reduce( (acum, valor)=> acum + valor.quantity, 0) 

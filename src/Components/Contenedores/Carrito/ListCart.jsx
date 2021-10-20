@@ -2,17 +2,15 @@ import React from 'react'
 import { useAppContext } from '../../../Context/AppContext'
 
 const ListCart = () => {
-    //traer del context
     const {auto , precioTotal} = useAppContext() 
     return (
         <>
             {auto.map(pro =>  
                 <div> 
-                    <p>{ pro.item.name}</p>
-                    <p>{ pro.quantity}</p>
+                    <h5>{ pro.item.marca } { pro.item.modelo } Cantidad: { pro.quantity }</h5>
                 </div>
             )}
-            {precioTotal()}
+            <h3>Total ${precioTotal()}</h3>
         </>
     )
 }
